@@ -124,7 +124,7 @@ $blue: #2962ff;
 					
 				</div>
                 <section class="new-section" style="margin-top: 50px;"><br>
-                <h1 class="new-text-shadow">NETWORKS </h1>
+                <h1 class="new-text-shadow">--NETWORKS-- </h1>
                
                 <br>
               </section>
