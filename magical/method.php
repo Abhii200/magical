@@ -120,7 +120,7 @@ $blue: #2962ff;
 <section id="home" class="welcome-hero">
 			<div class="container">
 				<div class="welcome-hero-txt" >
-					<h2>Integrative Network Analysis for Predicting Genetic Interactions: Leveraging Experimentally Validated and Predicted Protein-Protein Interactions </h2>
+					<h3>Integrative Network Analysis for Predicting Genetic Interactions: Leveraging Experimentally Validated and Predicted Protein-Protein Interactions </h3>
 					
 				</div>
                 <section class="new-section" style="margin-top: 50px;"><br>
