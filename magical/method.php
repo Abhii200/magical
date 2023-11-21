@@ -150,27 +150,27 @@ $blue: #2962ff;
             <div class="single-list-topics-icon">
               <i class="flaticon-restaurant"></i>
             </div>
-            <h2><a href="#">SL</a></h2>
+            <h2>SL</h2>
             <p>150 listings</p>
-          </div>
+          </div></a>
         </li>
         <li ><a href="#"> 
           <div class="single-list-topics-content">
             <div class="single-list-topics-icon">
               <i class="flaticon-travel"></i>
             </div>
-            <h2><a href="#">SV</a></h2>
+            <h2>SV</h2>
             <p>214 listings</p>
-          </div>
+          </div></a>
         </li>
        <li ><a href="#">
           <div class="single-list-topics-content" style="margin-right:20px;">
             <div class="single-list-topics-icon">
               <i class="flaticon-building"></i>
             </div>
-            <h2><a href="#">NOT</a></h2>
+            <h2>NOT</h2>
             <p>185 listings</p>
-          </div>
+          </div></a>
         </li>
       </ul>
     </div>
