@@ -330,22 +330,22 @@
 					<ul>
 						
 						<li>
-							<div class="single-list-topics-content">
+							<div class="single-list-topics-content" onclick="showPopupForm()">
 								<div class="single-list-topics-icon">
 									<i class="flaticon-pills"></i>
 								</div>
-								<h2><a href="#">BROWSE</a></h2>
-								<p>200 listings</p>
+								<h2>BROWSE</h2>
+								<p>Click here to Browse</p>
 							</div>
 						</li>
-						<li>
-							<div class="single-list-topics-content">
+						<li><a href="">
+							<div class="single-list-topics-content"  >
 								<div class="single-list-topics-icon">
 									<i class="flaticon-transport"></i>
 								</div>
-								<h2><a href="#">UPDATE</a></h2>
+								<h2>UPLOAD</h2>
 								<p>120 listings</p>
-							</div>
+							</div></a>
 						</li>
 					</ul>
 				</div>
@@ -353,7 +353,16 @@
 
 		</section><!--/.list-topics-->
 		<!--list-topics end-->
-
+		<div class="popup-form" id="geneForm">
+			<label for="gene1">Gene 1:</label>
+			<input type="text" id="gene1" name="gene1" required><br>
+		
+			<label for="gene2">Gene 2:</label>
+			<input type="text" id="gene2" name="gene2" required><br>
+		
+			<button onclick="submitForm()">Submit</button>
+		</div>
+		<div class="overlay" id="overlay" onclick="hidePopupForm()"></div>
 		<!--works start -->
 		<section id="works" class="works">
 			<div class="container">
@@ -1217,7 +1226,27 @@
 			</div><!--/.scroll-Top-->
 			
         </footer><!--/.footer-->
-		<!--footer end-->
+		<!--footer end--><script>
+    function showPopupForm() {
+        // Show the popup form and overlay
+        document.getElementById('geneForm').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+    }
+
+    function hidePopupForm() {
+        // Hide the popup form and overlay
+        document.getElementById('geneForm').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+    }
+
+    function submitForm() {
+        // Perform any additional actions on form submission
+        // For example, you can send the data to a server using AJAX
+
+        // Hide the popup form and overlay
+        hidePopupForm();
+    }
+</script>
 		
 		<!-- Include all js compiled plugins (below), or include individual files as needed -->
 
