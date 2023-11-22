@@ -50,7 +50,7 @@ include 'navbar.html';
     }
     @import url("https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@400;600;700&display=swap");
 
-    $blue: #2962ff;
+    
     
     * {
       box-sizing: border-box;
@@ -88,7 +88,7 @@ include 'navbar.html';
       color: transparent;
       -webkit-text-stroke: #fff;
       -webkit-text-stroke-width: 1px;
-      text-shadow: 2px 2px 10px $blue;
+      text-shadow: 2px 2px 10px ;
       transition: all 0.5s ease-in-out;
       text-align: center;
       letter-spacing: 0.2em;
@@ -107,16 +107,7 @@ include 'navbar.html';
       }
     }
     
-    @keyframes new-flicker {
-      0% {
-        opacity: 0.5;
-        text-shadow: 2px 2px 10px $blue;
-      }
-      100% {
-        opacity: 1;
-        text-shadow: 2px 2px 20px $blue;
-      }
-    }
+   
     </STYle>
 
 <section id="home" class="welcome-hero">
@@ -171,3 +162,5 @@ include 'navbar.html';
 			</div><!--/.container-->
 
 		</section>
+    </body>
+    </html>
