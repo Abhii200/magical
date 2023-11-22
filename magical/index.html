@@ -354,13 +354,15 @@
 		</section><!--/.list-topics-->
 		<!--list-topics end-->
 		<div class="popup-form" id="geneForm">
-			<label for="gene1">Gene 1:</label>
-			<input type="text" id="gene1" name="gene1" required><br>
+			<form  action="data.php" method="post">
+				<label for="gene1">Gene 1:</label>
+				<input type="text" id="gene1" name="gene1" ><br>
 		
-			<label for="gene2">Gene 2:</label>
-			<input type="text" id="gene2" name="gene2" required><br>
+				<label for="gene2">Gene 2:</label>
+				<input type="text" id="gene2" name="gene2" ><br>
 		
-			<button onclick="submitForm()">Submit</button>
+				<button type="submit">Submit</button>
+			</form>
 		</div>
 		<div class="overlay" id="overlay" onclick="hidePopupForm()"></div>
 		<!--works start -->

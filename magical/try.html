@@ -52,13 +52,15 @@
 
 <!-- Popup form -->
 <div class="popup-form" id="geneForm">
-    <label for="gene1">Gene 1:</label>
-    <input type="text" id="gene1" name="gene1" required><br>
+    <form  action="data.php" method="post">
+        <label for="gene1">Gene 1:</label>
+        <input type="text" id="gene1" name="gene1" required><br>
 
-    <label for="gene2">Gene 2:</label>
-    <input type="text" id="gene2" name="gene2" required><br>
+        <label for="gene2">Gene 2:</label>
+        <input type="text" id="gene2" name="gene2" required><br>
 
-    <button onclick="submitForm()">Submit</button>
+        <button type="submit">Submit</button>
+    </form>
 </div>
 
 <!-- Overlay to darken the background when the popup is displayed -->
@@ -77,7 +79,10 @@
         document.getElementById('overlay').style.display = 'none';
     }
 
-    function submitForm() {
+    function submitForm(event) {
+        // Prevent the default form submission behavior
+        event.preventDefault();
+
         // Perform any additional actions on form submission
         // For example, you can send the data to a server using AJAX
 
