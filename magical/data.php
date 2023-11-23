@@ -1,3 +1,6 @@
+<?php
+include 'navbar.html';
+?>
 <!DOCTYPE html>
 <html>
 
