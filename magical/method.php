@@ -120,7 +120,12 @@ $blue: #2962ff;
 <section id="home" class="welcome-hero">
 			<div class="container">
 				<div class="welcome-hero-txt" >
-					<h2>Integrative Network Analysis for Predicting Genetic Interactions: Leveraging Experimentally Validated and Predicted Protein-Protein Interactions </h2>
+					<h1 style="  font-size: 35px;
+    color: #e4dede;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.4px;
+    line-height: 1.4;">Integrative Network Analysis for Predicting Genetic Interactions: Leveraging Experimentally Validated and Predicted Protein-Protein Interactions </h1>
 					
 				</div>
                 <section class="new-section" style="margin-top: 50px;"><br>
@@ -145,31 +150,31 @@ $blue: #2962ff;
   <div class="container">
     <div class="list-topics-content">
       <ul>
-        <li ><a href="#">
+        <li ><a href="sl.php">
           <div class="single-list-topics-content">
             <div class="single-list-topics-icon">
               <i class="flaticon-restaurant"></i>
             </div>
             <h2>SL</h2>
-            <p>150 listings</p>
+            <p></p>
           </div></a>
         </li>
-        <li ><a href="#"> 
+        <li ><a href="sv.php"> 
           <div class="single-list-topics-content">
             <div class="single-list-topics-icon">
               <i class="flaticon-travel"></i>
             </div>
             <h2>SV</h2>
-            <p>214 listings</p>
+            <p></p>
           </div></a>
         </li>
-       <li ><a href="#">
+       <li ><a href="not.php">
           <div class="single-list-topics-content" style="margin-right:20px;">
             <div class="single-list-topics-icon">
               <i class="flaticon-building"></i>
             </div>
             <h2>NOT</h2>
-            <p>185 listings</p>
+            <p></p>
           </div></a>
         </li>
       </ul>

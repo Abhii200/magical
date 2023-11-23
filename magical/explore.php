@@ -132,7 +132,7 @@ include 'navbar.html';
 						<li><a href="#">
 							<div class="single-list-topics-content">
 								<div class="single-list-topics-icon">
-									<i class="flaticon-restaurant"></i>
+                <i class="material-icons" style="font-size:36px">offline_pin</i>
 								</div>
 								<h2>Experimental</h2>
 								
@@ -142,7 +142,7 @@ include 'navbar.html';
 						<li><a href="#">
 							<div class="single-list-topics-content">
 								<div class="single-list-topics-icon">
-									<i class="flaticon-pills"></i>
+                <i class="material-icons" style="font-size:36px">help_outline</i>
 								</div>
 								<h2>Predicted</h2>
 								
@@ -151,7 +151,8 @@ include 'navbar.html';
 						<li><a href="#">
 							<div class="single-list-topics-content" >
 								<div class="single-list-topics-icon">
-									<i class="flaticon-transport"></i>
+                <i class="fa fa-spinner" style="font-size:36px;"></i>
+
 								</div>
 								<h2>All-proteins</h2>
 								
