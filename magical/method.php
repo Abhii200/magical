@@ -289,7 +289,7 @@
 			                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
 			                    <li ><a href="index.html">home</a></li>
 			                    
-			                    <li class="scroll" ><a href="explore.php">Explore</a></li>
+			                    <li ><a href="explore.php">Explore</a></li>
 			                    <li class="scroll active" ><a href="method.php">Method</a></li>
 			                    <li class="scroll"><a href="#blog">Download</a></li>
 								<li class="scroll"><a href="#blog">About</a></li>
@@ -421,7 +421,7 @@ $blue: #2962ff;
 }
 </STYle>
 
-                <section class="new-section" style="margin-top: 50px;"><br>
+                <section class="new-section" style="margin-top: 50px; margin-bottom:70px;"><br>
                 <h1 class="new-text-shadow">--NETWORKS-- </h1>
                
                 <br>

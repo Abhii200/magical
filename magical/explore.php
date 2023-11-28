@@ -416,7 +416,7 @@
 
 			
 				
-            <section class="new-section" style="margin-top: 50px;"><br>
+            <section class="new-section" style="margin-top: 50px; margin-bottom:70px;"><br>
                 <h1 class="new-text-shadow"> -- PAIRS -- </h1>
                 <br>
               </section>
