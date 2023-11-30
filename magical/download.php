@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
+<?php include "navbar.html"; ?>
+<style>
         /* Your CSS styles here */
         body {
             font-family: 'Arial', sans-serif;
@@ -34,17 +29,7 @@
             color: white;
         }
     </style>
-    <title>Synthetic Lethality in Genetics and Cancer Research</title>
-</head>
-
-<body>
-
-    <?php include "navbar.php"; ?>
-
-    <h1>Understanding Synthetic Lethality in Genetics and Cancer Research</h1>
-
-    <!-- Download Buttons -->
-    <button class="button download">Download File 1</button>
+     <button class="button download">Download File 1</button>
     <button class="button download">Download File 2</button>
     <button class="button download">Download File 3</button>
 
@@ -52,7 +37,3 @@
     <button class="button upload">Upload File 1</button>
     <button class="button upload">Upload File 2</button>
     <button class="button upload">Upload File 3</button>
-
-</body>
-
-</html>

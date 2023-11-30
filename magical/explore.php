@@ -291,7 +291,7 @@
 			                    
 			                    <li class="scroll active" ><a href="explore.php">Explore</a></li>
 			                    <li ><a href="method.php">Method</a></li>
-			                    <li class="scroll"><a href="#blog">Download</a></li>
+			                    <li ><a href="download.php">Download</a></li>
 								<li class="scroll"><a href="#blog">About</a></li>
 			                    <li class="scroll"><a href="#contact">Contact</a></li>
 								
