@@ -473,6 +473,56 @@ $blue: #2962ff;
     </div>
   </div><!--/.container-->
 </section>
+
+<style>
+      
+        .topic {
+            margin-bottom: 20px;
+        }
+        .topic-title {
+            color: #46c5d9;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .topic-content {
+            line-height: 1.5;
+        }
+    </style>
+	<div style="font-family: Arial, sans-serif;
+            max-width: 980px;
+            margin: 0 auto;
+            padding-bottom:50px">
+<div class="topic">
+    <div class="topic-title">Data Collection and Network Construction</div>
+    <div class="topic-content">
+        The protein-protein interaction (PPI) data is downloaded from BioGRID, and a network of physically interacting proteins is constructed. The self-loops and duplicate interactions are discarded, and only the unique interactions are considered.
+    </div>
+    <div class="topic-content">
+        The network is built using “igraph,” an R package, and is further utilized to calculate the network properties. A total of 20 node and pairwise properties are calculated.
+    </div>
+</div>
+
+<div class="topic">
+    <div class="topic-title">GI Mapping and Model Training</div>
+    <div class="topic-content">
+        GIs from different sources are mapped to the PPI network. The training dataset includes 70% of GIs from CGIDB(), BIOGRID(), SLDB(), SVDR(), along with the NOT data.
+    </div>
+    <div class="topic-content">
+        Feature selection algorithms, "varImp" and "RFE," identify essential features. The model achieves an accuracy of ~87%, with key discriminatory features being "shortest path," "average betweenness," and "average triangle."
+    </div>
+</div>
+
+<div class="topic">
+    <div class="topic-title">MAGICAL Model with STRING Data</div>
+    <div class="topic-content">
+        Incorporating STRING data expands the PPI set, including experimentally validated and predicted pairs. The model, trained on 70% of the data, achieves an accuracy of 82.22% for 10-fold cross-validation.
+    </div>
+    <div class="topic-content">
+        Among the 20 network properties, “average betweenness,” “average triangle,” “average coreness,” and “average neighbor2” are the most discriminatory in classifying the three sets of GIs.
+    </div>
+</div>
+</div>
 	<!-- Include all js compiled plugins (below), or include individual files as needed -->
 
   <script src="assets/js/jquery.js"></script>
