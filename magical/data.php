@@ -70,45 +70,20 @@ include 'navbar.html';
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
             }
-
-            if ($g1 == null and $g2 == null) {
-                $sql = "SELECT * FROM `data` ";
-
-                $result = $conn->query($sql);
-
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<tr>";
-                        echo "<td>" . $row["a"] . "</td>";
-                        echo "<td>" . $row["b"] . "</td>";
-                        echo "<td>" . $row["c"] . "</td>";
-                        echo "<td>" . $row["d"] . "</td>";
-                        echo "</tr>";
-                    }
-                } else {
-                    echo "<tr><td colspan='4'>0 results</td></tr>";
+            if ($g1 != null || $g2 != null) {
+                $sql = "SELECT * FROM `data`";
+            
+                // Adjust the logic to handle any gene input in either box
+                if ($g1 != null && $g2 != null) {
+                    $sql .= " WHERE (a='$g1' AND b='$g2') OR (a='$g2' AND b='$g1')";
+                } elseif ($g1 != null) {
+                    $sql .= " WHERE a='$g1' OR b='$g1'";
+                } elseif ($g2 != null) {
+                    $sql .= " WHERE a='$g2' OR b='$g2'";
                 }
-            } elseif ($g2 == null) {
-                $sql = "SELECT * FROM `data` WHERE a='$g1' ";
-
+            
                 $result = $conn->query($sql);
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<tr>";
-                        echo "<td>" . $row["a"] . "</td>";
-                        echo "<td>" . $row["b"] . "</td>";
-                        echo "<td>" . $row["c"] . "</td>";
-                        echo "<td>" . $row["d"] . "</td>";
-                        echo "</tr>";
-                    }
-                } else {
-                    echo "<tr><td colspan='4'>0 results</td></tr>";
-                }
-            } elseif ($g1 == null) {
-                $sql = "SELECT * FROM `data` WHERE  b='$g2'";
-
-                $result = $conn->query($sql);
-
+            
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
@@ -122,10 +97,10 @@ include 'navbar.html';
                     echo "<tr><td colspan='4'>0 results</td></tr>";
                 }
             } else {
-                $sql = "SELECT * FROM `data` WHERE a='$g1' and b='$g2'";
-
+                $sql = "SELECT * FROM `data`";
+            
                 $result = $conn->query($sql);
-
+            
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
@@ -139,6 +114,9 @@ include 'navbar.html';
                     echo "<tr><td colspan='4'>0 results</td></tr>";
                 }
             }
+            
+
+           
 
             $conn->close();
             ?>
