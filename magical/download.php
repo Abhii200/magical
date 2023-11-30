@@ -1,13 +1,7 @@
 <?php include "navbar.html"; ?>
 <style>
         /* Your CSS styles here */
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            margin: 20px;
-            text-align: center;
-        }
+     
 
         .button {
             display: inline-block;
@@ -29,6 +23,11 @@
             color: white;
         }
     </style>
+    <div style=" font-family: 'Arial', sans-serif;
+            
+            color: #333;
+            margin: 20px;
+            text-align: center;">
      <button class="button download">Download File 1</button>
     <button class="button download">Download File 2</button>
     <button class="button download">Download File 3</button>
@@ -37,3 +36,4 @@
     <button class="button upload">Upload File 1</button>
     <button class="button upload">Upload File 2</button>
     <button class="button upload">Upload File 3</button>
+    </div>
