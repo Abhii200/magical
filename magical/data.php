@@ -347,23 +347,35 @@
             color: #2980b9;
         }
 
-        .export-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+        .table-container {
+  position: relative;
+  margin-bottom: 20px; /* Adding margin to prevent button from sticking to the table */
+}
+
+.export-button {
+  position: absolute;
+  top: -40px;
+  left: 48%;
+  margin: 10px;
+  padding: 5px 12px;
+  background-color: #349;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+        
     </style>
 </head>
 
 <body>
-<button class="export-button" onclick="exportToExcel()">Export</button>
-    <!-- Centered table container -->
-    <table style="margin: 80px auto;">
+<div class="table-container">
+        <!-- Export button at the top right corner -->
+        <button class="export-button" onclick="exportToExcel()">Export</button>
+
+        <!-- Centered table container -->
+        <table style="margin: 80px auto;">
         <tr>
             <th>GENE1</th>
             <th>GENE2</th>
