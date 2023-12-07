@@ -226,38 +226,14 @@
 				<li>
 					<div class="header-top-left">
 						<ul>
-							<li class="select-opt">
-								<select name="language" id="language">
-									<option value="default">EN</option>
-									<option value="Bangla">BN</option>
-									<option value="Arabic">AB</option>
-								</select>
-							</li>
-							<li class="select-opt">
-								<select name="currency" id="currency">
-									<option value="usd">USD</option>
-									<option value="euro">Euro</option>
-									<option value="bdt">BDT</option>
-								</select>
-							</li>
-							<li class="select-opt">
-								<a href="#"><span class="lnr lnr-magnifier"></span></a>
-							</li>
+							
 						</ul>
 					</div>
 				</li>
 				<li class="head-responsive-right pull-right">
 					<div class="header-top-right">
 						<ul>
-							<li class="header-top-contact">
-								+1 222 777 6565
-							</li>
-							<li class="header-top-contact">
-								<a href="#">sign in</a>
-							</li>
-							<li class="header-top-contact">
-								<a href="#">register</a>
-							</li>
+							
 						</ul>
 					</div>
 				</li>
@@ -289,11 +265,11 @@
 			            <!-- Collect the nav links, forms, and other content for toggling -->
 			            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
 			                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-			                    <li class=" scroll "><a href="index.html">home</a></li>
+			                    <li ><a href="index.html">home</a></li>
 			                    
 			                    <li ><a href="explore.php">Explore</a></li>
 			                    <li ><a href="method.php">Method</a></li>
-								<li ><a href="download.php">Download</a></li>
+								<li class="scroll active"><a href="download.php">Download</a></li>
 								<li class="scroll"><a href="#blog">About</a></li>
 			                    <li class="scroll"><a href="#contact">Contact</a></li>
 								
