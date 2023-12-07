@@ -58,20 +58,11 @@ include 'navbar.html';
             </tr>
 
             <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "data";
+           include 'dataconnect.php';
 
-           
-            $conn = new mysqli($servername, $username, $password, $dbname);
-
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
 
             
-                $sql = "SELECT * FROM `data` WHERE c='SV' ";
+                $sql = "SELECT * FROM `data2` WHERE c='SV' ";
 
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
