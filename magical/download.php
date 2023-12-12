@@ -128,8 +128,7 @@
 			  gap: 30px;
 			
 			  h1 {
-				font-size: 2.5em;
-				text-decoration: underline;
+				font-size: 1em;
 			
 				@media (max-width: 768px) {
 				  font-size: 1.3em;
@@ -282,6 +281,11 @@
 		    
 
 		</section>
+		<section class="new-section" style="margin-top: 50px; margin-bottom:70px;"><br>
+                <h1 class="new-text-shadow">--DOWNLOAD AND UPLOAD HERE-- </h1>
+               
+                <br>
+              </section>
 <style>
         /* Your CSS styles here */
      
