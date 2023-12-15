@@ -249,17 +249,18 @@
                 style="  background-color:#114b4a;
     border-bottom: transparent;">
 
-			        <div class="container">
-
+<div class="container">
+						
 			            <!-- Start Header Navigation -->
-			            <div class="navbar-header">
-			                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-			                    <i class="fa fa-bars"></i>
-			                </button>
-			                <a class="navbar-brand" href="index.html"><span>MAGICAL</span></a>
-
+			            <div class="navbar-header" >
+							<span style="max-width: 300px;
+							height: auto;" class="navbar-brand"><img   src="assets/img/logodb.png" alt=""></span>
+	
+	
+			                
 			            </div><!--/.navbar-header-->
 			            <!-- End Header Navigation -->
+
 
 			            <!-- Collect the nav links, forms, and other content for toggling -->
 			            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
@@ -315,12 +316,25 @@
             color: #333;
             margin: 20px;
             text-align: center;">
-     <button class="button download">Download File 1</button>
-    <button class="button download">Download File 2</button>
-    <button class="button download">Download File 3</button>
 
+		<a href="assets/img/logodb.png" download="logodb.png">
+		<button class="button download">Download File 1</button>
+		</a>
+
+		<a href="assets/img/logodb.png" download="logodb.png">
+		<button class="button download">Download File 2</button>
+		</a>
+
+		<a href="assets/img/logodb.png" download="logodb.png">
+		<button class="button download">Download File 3</button>
+		</a>
+
+	
     <!-- Upload Buttons -->
-    <button class="button upload">Upload File 1</button>
-    <button class="button upload">Upload File 2</button>
-    <button class="button upload">Upload File 3</button>
+	<a href="assets/img/logodb.png" download="logodb.png">
+  <button class="button upload">Upload File 1</button></a>
+  <a href="assets/img/logodb.png" download="logodb.png">
+<button class="button upload">Upload File 2</button></a>
+<a href="assets/img/logodb.png" download="logodb.png">
+ <button class="button upload">Upload File 3</button></a>
     </div>
