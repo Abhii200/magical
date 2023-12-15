@@ -19,7 +19,7 @@
 
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- For favicon png -->
-		<link rel="shortcut icon" type="image/icon" href="assets/logo/favicon.png"/>
+		<link rel="shortcut icon" type="image/icon" href="assets/logo/favicon.jpg"/>
        
         <!--font-awesome.min.css-->
         <link rel="stylesheet" href="assets/css/font-awesome.min.css">

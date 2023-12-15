@@ -19,7 +19,7 @@
 
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- For favicon png -->
-		<link rel="shortcut icon" type="image/icon" href="assets/logo/favicon.png"/>
+		<link rel="shortcut icon" type="image/icon" href="assets/logo/favicon.jpg"/>
        
         <!--font-awesome.min.css-->
         <link rel="stylesheet" href="assets/css/font-awesome.min.css">
@@ -374,7 +374,7 @@
 </div>
 
 <div class="topic">
-    <div class="topic-title">MAGICAL Model with STRING Data</div>
+    <div class="topic-title">MAGICAL DB Model with STRING Data</div>
     <div class="topic-content">
         Incorporating STRING data expands the PPI set, including experimentally validated and predicted pairs. The model, trained on 70% of the data, achieves an accuracy of 82.22% for 10-fold cross-validation.
     </div>
