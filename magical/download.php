@@ -12,7 +12,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
         
         <!-- title of site -->
-        <title>Directory Landing Page</title>
+        <title>MAGICAL</title>
 
 
 
@@ -184,8 +184,9 @@
 					background-color: #f9f9f9;
 					border: 1px solid #ccc;
 					z-index: 1;
+					text-align: center; /* Center the contents */
 				}
-		
+			
 				/* Style for the overlay */
 				.overlay {
 					display: none;
@@ -197,7 +198,7 @@
 					background-color: rgba(0,0,0,0.7);
 					z-index: 0;
 				}
-		
+			
 				/* Style for the button */
 				button {
 					padding: 10px 20px;
@@ -207,11 +208,19 @@
 					border-radius: 5px;
 					cursor: pointer;
 				}
-		
+			
 				button:hover {
 					background-color: #45a049;
 				}
+			
+				/* Style for the submit button */
+				.popup-form button {
+					margin-top: 15px; /* Add margin to separate from the inputs */
+				}
 			</style>
+
+			
+			
     </head>
 	
 	<body>
@@ -226,16 +235,12 @@
 					<div class="header-top-left">
 						<ul>
 							
-						</ul>
-					</div>
-				</li>
-				<li class="head-responsive-right pull-right">
-					<div class="header-top-right">
-						<ul>
+							
 							
 						</ul>
 					</div>
 				</li>
+				
 			</ul>
 					
 		</header><!--/.header-top-->
@@ -245,11 +250,9 @@
 		<section class="top-area">
 			<div class="header-area">
 				<!-- Start Navigation -->
-			    <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy"  data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000"
-                style="  background-color:#114b4a;
-    border-bottom: transparent;">
+			    <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy"  data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
 
-<div class="container">
+			        <div class="container">
 						
 			            <!-- Start Header Navigation -->
 			            <div class="navbar-header" >
