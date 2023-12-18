@@ -223,31 +223,17 @@
 			
     </head>
 	
-	<body>
+	<body >
 		<!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
 		
 		<!--header-top start -->
-		<header id="header-top" class="header-top">
-			<ul>
-				<li>
-					<div class="header-top-left">
-						<ul>
-							
-							
-							
-						</ul>
-					</div>
-				</li>
-				
-			</ul>
-					
-		</header><!--/.header-top-->
+		<!--/.header-top-->
 		<!--header-top end -->
 
 		<!-- top-area Start -->
-		<section class="top-area">
+		<section class="top-area" >
 			<div class="header-area">
 				<!-- Start Navigation -->
 			    <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy"  data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
@@ -269,7 +255,7 @@
 
 
 			            <!-- Collect the nav links, forms, and other content for toggling -->
-			            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+			            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu" style="padding-top: 18px;">
 			                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
 			                    <li ><a href="index.html">home</a></li>
 			                    
