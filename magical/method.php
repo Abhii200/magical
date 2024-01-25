@@ -338,53 +338,102 @@
 </section>
 
 <style>
-      
+        
+
         .topic {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .topic-title {
+
+		.topic-title {
             color: #46c5d9;
-            font-size: 1.5em;
+            font-size: 1.8em;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            position: relative;
         }
+
+        .topic-title::after {
+            content: "";
+            display: block;
+            border-bottom: 2px solid #46c5d9;
+            margin-top: 8px;
+            width: 50%;
+        }
+
         .topic-content {
-            line-height: 1.5;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .ptag {
+            margin-bottom: 10px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .ptag::before {
+            content: "\2022"; /* Bullet point character */
+            color: #46c5d9;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            position: absolute;
         }
     </style>
 	<div style="font-family: Arial, sans-serif;
             max-width: 980px;
             margin: 0 auto;
             padding-bottom:50px">
+
+
+
 <div class="topic">
-    <div class="topic-title">Data Collection and Network Construction</div>
+    <div class="topic-title">Data Collection and Processing:</div>
     <div class="topic-content">
-        The protein-protein interaction (PPI) data is downloaded from BioGRID, and a network of physically interacting proteins is constructed. The self-loops and duplicate interactions are discarded, and only the unique interactions are considered.
-    </div>
+        <p class="ptag">1. Protein-protein interaction (PPI) data is sourced from BioGRID.</p>
+        <p class="ptag">2. A network of physically interacting proteins is constructed using the "igraph" R package.</p>
+        <p class="ptag">3. Self-loops and duplicate interactions are removed to consider only unique interactions.</p>
+        <p class="ptag">4. 20 node and pairwise properties are calculated using the constructed PPI network.</p>
+    </div> 
+</div> 
+
+<div class="topic">
+    <div class="topic-title">Data Mapping and Integration:</div>
     <div class="topic-content">
-        The network is built using “igraph,” an R package, and is further utilized to calculate the network properties. A total of 20 node and pairwise properties are calculated.
+        <p class="ptag"> Gene interactions (GIs) from different sources are mapped onto the PPI network.</p>
+        <p class="ptag"> For a given SL pair X and Y, the network property for the pair (NP(XY)) is calculated as the average of NP(X) and NP(Y).</p>
     </div>
 </div>
 
 <div class="topic">
-    <div class="topic-title">GI Mapping and Model Training</div>
+    <div class="topic-title">Training and Validation Datasets:</div>
     <div class="topic-content">
-        GIs from different sources are mapped to the PPI network. The training dataset includes 70% of GIs from CGIDB(), BIOGRID(), SLDB(), SVDR(), along with the NOT data.
-    </div>
-    <div class="topic-content">
-        Feature selection algorithms, "varImp" and "RFE," identify essential features. The model achieves an accuracy of ~87%, with key discriminatory features being "shortest path," "average betweenness," and "average triangle."
+        <p class="ptag">Training dataset comprises 70% of GIs from CGIDB, BIOGRID, SLDB, and SVDR, along with NOT data.</p>
+        <p class="ptag">The remaining 30% serves as the test data.</p>
+        <p class="ptag">Model achieves an accuracy of ~87%.</p>
+        <p class="ptag">"varImp" function in the "randomForest" package determines discriminatory features.</p>
+        <p class="ptag">"RFE" feature selection algorithm identifies essential features.</p>
+        <p class="ptag">Topological properties such as "shortest path," "average betweenness," and "average triangle" significantly contribute to model performance.</p>
     </div>
 </div>
 
 <div class="topic">
-    <div class="topic-title">MAGICAL DB Model with STRING Data</div>
+    <div class="topic-title">MAGICAL Model Incorporating STRING Data:</div>
     <div class="topic-content">
-        Incorporating STRING data expands the PPI set, including experimentally validated and predicted pairs. The model, trained on 70% of the data, achieves an accuracy of 82.22% for 10-fold cross-validation.
+        <p class="ptag"> STRING database provides a broader PPI set with 19624 proteins and 13,715,405 interactions.</p>
+        <p class="ptag"> Network is built for STRING proteins, and GIs from CGIdb, BioGRID, and SLDB are mapped.</p>
+        <p class="ptag"> NOT data is constructed similarly as discussed earlier.</p>
+        <p class="ptag"> Pairwise combinations of proteins are generated, and GIs from all three datasets, along with yeast homologs, are removed.</p>
+        <p class="ptag"> A large NOT dataset is created, with 10,000 randomly selected pairs.</p>
+        <p class="ptag"> Network properties of these GIs are calculated and used to train the model.</p>
+        <p class="ptag"> Model achieves an accuracy of 82.22% for 10-fold cross-validation.</p>
+        <p class="ptag"> Among 20 network properties, "average betweenness," "average triangle," "average coreness," and "average neighbor2" are the most discriminatory in classifying the three sets of GIs.</p>
     </div>
-    <div class="topic-content">
-        Among the 20 network properties, “average betweenness,” “average triangle,” “average coreness,” and “average neighbor2” are the most discriminatory in classifying the three sets of GIs.
-    </div>
-</div>
 </div>
 	<!-- Include all js compiled plugins (below), or include individual files as needed -->
 
