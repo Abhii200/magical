@@ -56,7 +56,7 @@
 			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-		<STYle> 
+		<style> 
     
         
 			.animate-charcterS {
@@ -171,7 +171,7 @@
 				text-shadow: 2px 2px 20px $blue;
 			  }
 			}
-			</STYle>
+			</style>
 			<style>
 				/* Style for the popup form */
 				.popup-form {
@@ -279,86 +279,59 @@
                
                 <br>
               </section>
-			  <style>
-    /* Your existing CSS styles here */
+<style>
+        /* Your CSS styles here */
+     
 
-    .button-container {
-        display: flex;
-        justify-content: space-between;
-    }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
 
-    .button {
-        display: inline-block;
-        padding: 10px 20px;
-        margin: 10px;
-        font-size: 16px;
-        cursor: pointer;
-        border: none;
-        border-radius: 5px;
-    }
+        .download {
+            background-color: #4CAF50;
+            color: white;
+        }
 
-    .download {
-        background-color: #4CAF50;
-        color: white;
-    }
+        .upload {
+            background-color: #008CBA;
+            color: white;
+        }
 
-    .upload {
-        background-color: #008CBA;
-        color: white;
-    }
-</style>
 
+        /* Add this CSS for side-by-side arrangement */
+        
+    </style>
     <div style=" font-family: 'Arial', sans-serif;
             
             color: #333;
             margin: 20px;
             text-align: center;">
 
-		<a href="assets/img/logodb.png" download="logodb.png">
-		<button class="button download">Download File 1</button>
-		</a>
-
-		<a href="assets/img/logodb.png" download="logodb.png">
-		<button class="button download">Download File 2</button>
-		</a>
-
-		<a href="assets/img/logodb.png" download="logodb.png">
-		<button class="button download">Download File 3</button>
-		</a>
-
         
 
     <!-- Upload Buttons -->
 	<body>
 
-    <form action="upload.php" method="post" enctype="multipart/form-data">
-        <div>
-            <label for="file1">File 1:</label>
-            <input type="file" name="file1" id="file1" style="display:none;" onchange="updateFileName('file1')">
-            <button type="button" class="button upload" onclick="document.getElementById('file1').click()">Upload File
-                1</button>
-            <span id="file1-name"></span>
-        </div>
+   <!-- ... Existing HTML code ... -->
+<form action="upload.php" method="post" enctype="multipart/form-data">
+    <div>
+        <label for="file1">File 1:</label>
+        <input type="file" name="file1" id="file1" style="display:none;" onchange="updateFileName('file1')">
+        <button type="button" class="button upload" onclick="document.getElementById('file1').click()">Upload File 1</button>
+        <span id="file1-name"></span>
+    </div>
 
-        <div>
-            <label for="file2">File 2:</label>
-            <input type="file" name="file2" id="file2" style="display:none;" onchange="updateFileName('file2')">
-            <button type="button" class="button upload" onclick="document.getElementById('file2').click()">Upload File
-                2</button>
-            <span id="file2-name"></span>
-        </div>
 
-        <div>
-            <label for="file3">File 3:</label>
-            <input type="file" name="file3" id="file3" style="display:none;" onchange="updateFileName('file3')">
-            <button type="button" class="button upload" onclick="document.getElementById('file3').click()">Upload File
-                3</button>
-            <span id="file3-name"></span>
-        </div>
+    <input type="submit" value="Upload Files">
+</form>
+<!-- ... Existing HTML code ... -->
 
-        <input type="submit" value="Upload Files">
-		<form action="upload.php" method="post" enctype="multipart/form-data">
-    </form>
 
     <script>
         function updateFileName(inputId) {
@@ -375,10 +348,6 @@
     </script>
 
 <?php
-// Include your database connection file if needed
-// include 'db_connection.php';
-
-// Assuming you have a database connection
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -390,51 +359,77 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Function to sanitize input data
-function sanitize($data)
-{
-    return htmlspecialchars(strip_tags($data));
-}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Loop through each file input
+    for ($i = 1; $i <= 3; $i++) {
+        $fileKey = "file" . $i;
 
-// Function to download the file
-function downloadFile($fileId)
-{
-    global $conn;
+        // Check if file is selected
+        if ($_FILES[$fileKey]["error"] == UPLOAD_ERR_OK) {
+            $fileName = basename($_FILES[$fileKey]["name"]);
+            $targetDir = "files/";
+            $targetFile = $targetDir . $fileName;
 
-    // Query to get the file name from the database
-    $sql = "SELECT file_name FROM files WHERE id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $fileId);
-    $stmt->execute();
-    $stmt->bind_result($fileName);
+            // Move the uploaded file to the desired directory
+            move_uploaded_file($_FILES[$fileKey]["tmp_name"], $targetFile);
 
-    if ($stmt->fetch()) {
-        // Directory where files are uploaded
-        $uploadDir = "files/";
+            // Insert file information into the database
+            $sql = "INSERT INTO files (file_name) VALUES (?)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("s", $fileName);
+            $stmt->execute();
+            $stmt->close();
 
-        // Full path to the file
-        $filePath = $uploadDir . '/' . $fileName;
-
-        // Set the correct content type
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename=' . basename($filePath));
-        readfile($filePath);
-        exit;
+            echo "File " . $i . " uploaded successfully. ";
+        }
     }
-
-    $stmt->close();
 }
-
-// Check if file id is set in the URL
-if (isset($_GET['file_id'])) {
-    $fileId = sanitize($_GET['file_id']);
-    downloadFile($fileId);
-}
-
 
 $conn->close();
 ?>
-</body>
+
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "record";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT * FROM files ORDER BY id";
+
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+		echo "<div>";
+		echo "<p><strong>File Name:</strong> " . $row["file_name"] . "</p>";
+	
+		// Download as PDF
+		$pdfPath = 'files' . $row["file_name"];
+		if (file_exists($pdfPath)) {
+			echo "<a href='download_pdf.php?id=" . $row["id"] . "'>Download PDF</a>";
+		} else {
+			echo "PDF file not found.";
+		}
+	
+		// Download as CSV
+		echo " | ";
+		echo "<a href='download_csv.php?id=" . $row["id"] . "'>Download CSV</a>";
+	
+		echo "</div>";
+	}
+	
+} else {
+    echo "0 results";
+}
+
+$conn->close();
+?>
 
 	<!-- Include all js compiled plugins (below), or include individual files as needed -->
 
