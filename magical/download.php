@@ -279,30 +279,35 @@
                
                 <br>
               </section>
-<style>
-        /* Your CSS styles here */
-     
+			  <style>
+    /* Your existing CSS styles here */
 
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-        }
+    .button-container {
+        display: flex;
+        justify-content: space-between;
+    }
 
-        .download {
-            background-color: #4CAF50;
-            color: white;
-        }
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+    }
 
-        .upload {
-            background-color: #008CBA;
-            color: white;
-        }
-    </style>
+    .download {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .upload {
+        background-color: #008CBA;
+        color: white;
+    }
+</style>
+
     <div style=" font-family: 'Arial', sans-serif;
             
             color: #333;
@@ -321,15 +326,115 @@
 		<button class="button download">Download File 3</button>
 		</a>
 
-	
+        
+
     <!-- Upload Buttons -->
-	<a href="assets/img/logodb.png" download="logodb.png">
-  <button class="button upload">Upload File 1</button></a>
-  <a href="assets/img/logodb.png" download="logodb.png">
-<button class="button upload">Upload File 2</button></a>
-<a href="assets/img/logodb.png" download="logodb.png">
- <button class="button upload">Upload File 3</button></a>
-    </div>
+	<body>
+
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="file1">File 1:</label>
+            <input type="file" name="file1" id="file1" style="display:none;" onchange="updateFileName('file1')">
+            <button type="button" class="button upload" onclick="document.getElementById('file1').click()">Upload File
+                1</button>
+            <span id="file1-name"></span>
+        </div>
+
+        <div>
+            <label for="file2">File 2:</label>
+            <input type="file" name="file2" id="file2" style="display:none;" onchange="updateFileName('file2')">
+            <button type="button" class="button upload" onclick="document.getElementById('file2').click()">Upload File
+                2</button>
+            <span id="file2-name"></span>
+        </div>
+
+        <div>
+            <label for="file3">File 3:</label>
+            <input type="file" name="file3" id="file3" style="display:none;" onchange="updateFileName('file3')">
+            <button type="button" class="button upload" onclick="document.getElementById('file3').click()">Upload File
+                3</button>
+            <span id="file3-name"></span>
+        </div>
+
+        <input type="submit" value="Upload Files">
+		<form action="upload.php" method="post" enctype="multipart/form-data">
+    </form>
+
+    <script>
+        function updateFileName(inputId) {
+            const input = document.getElementById(inputId);
+            const spanId = inputId + "-name";
+            const span = document.getElementById(spanId);
+
+            if (input.files.length > 0) {
+                span.textContent = " - " + input.files[0].name;
+            } else {
+                span.textContent = "";
+            }
+        }
+    </script>
+
+<?php
+// Include your database connection file if needed
+// include 'db_connection.php';
+
+// Assuming you have a database connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "record";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Function to sanitize input data
+function sanitize($data)
+{
+    return htmlspecialchars(strip_tags($data));
+}
+
+// Function to download the file
+function downloadFile($fileId)
+{
+    global $conn;
+
+    // Query to get the file name from the database
+    $sql = "SELECT file_name FROM files WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $fileId);
+    $stmt->execute();
+    $stmt->bind_result($fileName);
+
+    if ($stmt->fetch()) {
+        // Directory where files are uploaded
+        $uploadDir = "files/";
+
+        // Full path to the file
+        $filePath = $uploadDir . '/' . $fileName;
+
+        // Set the correct content type
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename=' . basename($filePath));
+        readfile($filePath);
+        exit;
+    }
+
+    $stmt->close();
+}
+
+// Check if file id is set in the URL
+if (isset($_GET['file_id'])) {
+    $fileId = sanitize($_GET['file_id']);
+    downloadFile($fileId);
+}
+
+
+$conn->close();
+?>
+</body>
 
 	<!-- Include all js compiled plugins (below), or include individual files as needed -->
 

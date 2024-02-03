@@ -372,7 +372,7 @@ include 'dataconnect.php';
         
 
         if ($g1 != null || $g2 != null) {
-            $sql = "SELECT * FROM data2";
+            $sql = "SELECT * FROM data";
 
             // Adjust the logic to handle any gene input in either box
             if ($g1 != null && $g2 != null) {
@@ -398,7 +398,7 @@ include 'dataconnect.php';
                 echo "<tr><td colspan='4'>0 results</td></tr>";
             }
         } else {
-            $sql = "SELECT * FROM data2";
+            $sql = "SELECT * FROM data";
 
             $result = $conn->query($sql);
 
