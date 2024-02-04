@@ -303,6 +303,54 @@
             color: white;
         }
 
+		.button{
+			text-align: right;
+			te
+		}
+		table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+	border: 1px solid #ddd;
+	
+}
+
+th {
+    background-color: skyblue;
+}
+
+label {
+    font-weight: bold;
+}
+
+.button {
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+	font-size: 15px;
+	margin-bottom: 20px;
+	margin-right: 40px;
+   margin-top: 20px;
+}
+
+.submit-button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 9px;
+    font-size: 13px;
+    cursor: pointer;
+	margin-inline-start: 13px;
+    margin-bottom: 10px; /* Adjust this value as needed */
+}
+
+
+
 
         /* Add this CSS for side-by-side arrangement */
         
@@ -328,7 +376,7 @@
     </div>
 
 
-    <input type="submit" value="Upload Files">
+    <input type="submit" value="Upload Files" class="submit-button">
 </form>
 <!-- ... Existing HTML code ... -->
 
@@ -387,7 +435,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $conn->close();
 ?>
-
 <?php
 $servername = "localhost";
 $username = "root";
@@ -405,31 +452,36 @@ $sql = "SELECT * FROM files ORDER BY id";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
+    echo "<table border='1'>";
+	echo "<tr><th>ID</th><th>File Name</th><th>Download PDF</th><th>Download CSV</th></tr>";
     while ($row = $result->fetch_assoc()) {
-		echo "<div>";
-		echo "<p><strong>File Name:</strong> " . $row["file_name"] . "</p>";
-	
-		// Download as PDF
-		$pdfPath = 'files' . $row["file_name"];
-		if (file_exists($pdfPath)) {
-			echo "<a href='download_pdf.php?id=" . $row["id"] . "'>Download PDF</a>";
-		} else {
-			echo "PDF file not found.";
-		}
-	
-		// Download as CSV
-		echo " | ";
-		echo "<a href='download_csv.php?id=" . $row["id"] . "'>Download CSV</a>";
-	
-		echo "</div>";
-	}
-	
+        echo "<tr>";
+        echo "<td>" . $row["id"] . "</td>";
+        echo "<td>" . $row["file_name"] . "</td>";
+    
+        // Download as PDF
+        $pdfPath = 'files' . $row["file_name"];
+        echo "<td>";
+        if (file_exists($pdfPath)) {
+            echo "<a href='download_pdf.php?id=" . $row["id"] . "'>Download PDF</a>";
+        } else {
+            echo "PDF file not found.";
+        }
+        echo "</td>";
+    
+        // Download as CSV
+        echo "<td><a href='download_csv.php?id=" . $row["id"] . "'>Download CSV</a></td>";
+    
+        echo "</tr>";
+    }
+    echo "</table>";
 } else {
     echo "0 results";
 }
 
 $conn->close();
 ?>
+
 
 	<!-- Include all js compiled plugins (below), or include individual files as needed -->
 
