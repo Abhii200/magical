@@ -207,6 +207,7 @@
 					border: none;
 					border-radius: 5px;
 					cursor: pointer;
+					
 				}
 			
 				button:hover {
@@ -274,7 +275,7 @@
 		    
 
 		</section>
-		<section class="new-section" style="margin-top: 50px; margin-bottom:70px;"><br>
+		<section class="new-section" style="margin-top: 50px; margin-bottom:35px;"><br>
                 <h1 class="new-text-shadow">--DOWNLOAD AND UPLOAD HERE-- </h1>
                
                 <br>
@@ -305,7 +306,7 @@
 
 		.button{
 			text-align: right;
-			te
+			
 		}
 		table {
     border-collapse: collapse;
