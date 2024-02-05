@@ -370,9 +370,9 @@ label {
    <!-- ... Existing HTML code ... -->
 <form action="upload.php" method="post" enctype="multipart/form-data">
     <div>
-        <label for="file1">File 1:</label>
+        <label for="file1">File :</label>
         <input type="file" name="file1" id="file1" style="display:none;" onchange="updateFileName('file1')">
-        <button type="button" class="button upload" onclick="document.getElementById('file1').click()">Upload File 1</button>
+        <button type="button" class="button upload" onclick="document.getElementById('file1').click()">Select File </button>
         <span id="file1-name"></span>
     </div>
 
