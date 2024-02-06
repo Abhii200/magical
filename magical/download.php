@@ -399,7 +399,7 @@ label {
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "4042";
 $dbname = "record";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -439,7 +439,7 @@ $conn->close();
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "4042";
 $dbname = "record";
 
 $conn = new mysqli($servername, $username, $password, $dbname);

@@ -361,63 +361,62 @@
             <th>GENE1</th>
             <th>GENE2</th>
             <th>predict_gi</th>
-            <th>MAX</th>
+            <th>Score</th>
         </tr>
 
         <?php
-        
 include 'dataconnect.php';
-        $g1 = $_POST["gene1"];
-        $g2 = $_POST["gene2"];
-        
 
-        if ($g1 != null || $g2 != null) {
-            $sql = "SELECT * FROM data";
+$g1 = $_POST["gene1"];
+$g2 = $_POST["gene2"];
 
-            // Adjust the logic to handle any gene input in either box
-            if ($g1 != null && $g2 != null) {
-                $sql .= " WHERE (a='$g1' AND b='$g2') OR (a='$g2' AND b='$g1')";
-            } elseif ($g1 != null) {
-                $sql .= " WHERE a='$g1' OR b='$g1'";
-            } elseif ($g2 != null) {
-                $sql .= " WHERE a='$g2' OR b='$g2'";
-            }
+if ($g1 != null || $g2 != null) {
+    $sql = "SELECT * FROM data2";
 
-            $result = $conn->query($sql);
+    if ($g1 != null && $g2 != null) {
+        $sql .= " WHERE (a='$g1' AND b='$g2') OR (a='$g2' AND b='$g1')";
+    } elseif ($g1 != null) {
+        $sql .= " WHERE a='$g1' OR b='$g1'";
+    } elseif ($g2 != null) {
+        $sql .= " WHERE a='$g2' OR b='$g2'";
+    }
 
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>" . $row["a"] . "</td>";
-                    echo "<td>" . $row["b"] . "</td>";
-                    echo "<td>" . $row["c"] . "</td>";
-                    echo "<td>" . $row["d"] . "</td>";
-                    echo "</tr>";
-                }
-            } else {
-                echo "<tr><td colspan='4'>0 results</td></tr>";
-            }
-        } else {
-            $sql = "SELECT * FROM data";
+    $result = $conn->query($sql);
 
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>" . $row["a"] . "</td>";
-                    echo "<td>" . $row["b"] . "</td>";
-                    echo "<td>" . $row["c"] . "</td>";
-                    echo "<td>" . $row["d"] . "</td>";
-                    echo "</tr>";
-                }
-            } else {
-                echo "<tr><td colspan='4'>0 results</td></tr>";
-            }
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr>";
+            echo "<td>" . $row["a"] . "</td>";
+            echo "<td>" . $row["b"] . "</td>";
+            echo "<td>" . $row["c"] . "</td>";
+            echo "<td>" . $row["d"] . "</td>";
+            echo "</tr>";
         }
+    } else {
+        echo "<tr><td colspan='4'>0 results</td></tr>";
+    }
+} else {
+    $sql = "SELECT * FROM data2";
 
-        $conn->close();
-        ?>
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr>";
+            echo "<td>" . $row["a"] . "</td>";
+            echo "<td>" . $row["b"] . "</td>";
+            echo "<td>" . $row["c"] . "</td>";
+            echo "<td>" . $row["d"] . "</td>";
+            echo "</tr>";
+        }
+    } else {
+        echo "<tr><td colspan='4'>0 results</td></tr>";
+    }
+}
+
+$conn->close();
+?>
+
 
     </table>
 
