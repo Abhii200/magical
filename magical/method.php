@@ -254,7 +254,7 @@
 			                    <i class="fa fa-bars"></i>
 			                </button>
 							<span style="max-width: 300px;
-							height: auto;" class="navbar-brand"><img   src="assets/img/logodb.png" alt=""></span>
+							height: auto;" class="navbar-brand"><img   src="assets/js/img/logodb.png" alt="" width="80px"></span>
 	
 	
 			                

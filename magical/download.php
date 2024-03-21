@@ -247,7 +247,7 @@
 			                    <i class="fa fa-bars"></i>
 			                </button>
 							<span style="max-width: 300px;
-							height: auto;" class="navbar-brand"><img   src="assets/img/logodb.png" alt=""></span>
+							height: auto;" class="navbar-brand"><img   src="assets/js/img/logodb.png" alt="" width="80px"></span>
 	
 	
 			                
@@ -397,16 +397,7 @@ label {
     </script>
 
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "4042";
-$dbname = "record";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include "dataconnect.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Loop through each file input
@@ -436,17 +427,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $conn->close();
 ?>
+
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "4042";
-$dbname = "record";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include "dataconnect.php";
 
 $sql = "SELECT * FROM files ORDER BY id";
 

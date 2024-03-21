@@ -1,18 +1,7 @@
 <?php
 // Database connection details
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "record";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
+include 'dataconnect.php';
 // Process file uploads
 $uploadDir = "files"; // Directory to store uploaded files
 
